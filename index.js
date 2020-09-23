@@ -3,7 +3,7 @@ const express = require("express");
 
 /** INIT */
 const app = express();
-const port = 2000;
+const port = 5000;
 
 
 app.get('/api/repositories' , async (req, res, next) => {
@@ -26,9 +26,26 @@ app.get('/api/repositories' , async (req, res, next) => {
     } catch (error) {
         next(error)
     }
-})
+});
+const getRepositoriesOfUser = (token, name) => 
+    new Promise((resolve, reject) => {
+          // SET UP GITHUB CLIENT
+        const client = github.client(token);
+          // GHME REFERS NOW TO THE OWNER OF THE TOKEN
+        const ghme = client.me();
+        // HERE FETCH ALL THE REPOSITORIES
+        ghme.repos((err, data, headers) => {
+            if(err) {
+                return reject(err);
+            }
+
+
+        })
+    })
+
+
 
 
  app.listen(port, () => {
-    console.log(`App is listening on port ${port}`);
-  });
+     console.log(`App is listening on port ${port}`)
+ });
