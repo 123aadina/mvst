@@ -1,5 +1,6 @@
 /** EXTERNAL DEPENDENCIES */
 const express = require("express");
+const github = require('octonode');
 
 /** INIT */
 const app = express();
@@ -52,11 +53,9 @@ const getRepositoriesOfUser = (token, name) =>
     });
 
     // HANDLING ALL ERRORS
-app.use((error, req, res, next) => {
+ app.use((error, req, res, next) => {
     res.status(error.status || 500).send(error);
   });
-
-
 
 
  app.listen(port, () => {
