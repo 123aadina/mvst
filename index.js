@@ -38,10 +38,18 @@ const getRepositoriesOfUser = (token, name) =>
             if(err) {
                 return reject(err);
             }
-
-
-        })
-    })
+            // I MAP THROUG REPOSITORIES AND FILTER IN CASE THERE IS PARAMETER NAME
+            const repositories = data.map((repo) => ({
+                name: repo.name,
+                url: repo.url,
+                langauge: repo.langauge,
+            }))
+            .filter((repo) => 
+            name ? repo.name.toLocaleLowerCase().includes(name.toLocaleLowerCase()) : true
+            );
+            resolve({ repositories});
+        });
+    });
 
 
 
