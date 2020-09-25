@@ -1,0 +1,30 @@
+{
+  "name": "mvst",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./src/index.js",
+    "doc": "jsdoc -c jsdoc.json",
+    "test": "jest --runInBand --forceExit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/123aadina/mvst.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/123aadina/mvst/issues"
+  },
+  "homepage": "https://github.com/123aadina/mvst#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jest": "^26.4.2",
+    "octonode": "^0.9.5"
+  },
+  "devDependencies": {
+    "jsdoc": "^3.6.6",
+    "nodemon": "^2.0.4"
+  }
+}
